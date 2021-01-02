@@ -6,6 +6,9 @@ RUN apt-get -qq update
 RUN apt-get -qq install -y aria2 python3 python3-pip \
     locales python3-lxml \
     curl pv jq ffmpeg
+    
+RUN pip3 uninstall appdirs
+RUN pip3 install appdirs
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt
 RUN locale-gen en_US.UTF-8
